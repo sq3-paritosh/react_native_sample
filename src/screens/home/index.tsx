@@ -18,6 +18,7 @@ import styles from './home.style';
 import DefaultLayout from '../../layouts/defaultLayout';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types';
+import Header from '../../components/header';
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 function Home({navigation}: Props): JSX.Element {
@@ -25,6 +26,7 @@ function Home({navigation}: Props): JSX.Element {
 
   return (
     <DefaultLayout>
+      <Header />
       <View
         style={{
           backgroundColor: isDarkMode ? Colors.black : Colors.white,

@@ -9,7 +9,6 @@ import React, {PropsWithChildren} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {ScrollView, StatusBar, StyleSheet, useColorScheme} from 'react-native';
-import Header from '../../components/header';
 
 const DefaultLayout = ({children}: PropsWithChildren): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,7 +19,6 @@ const DefaultLayout = ({children}: PropsWithChildren): JSX.Element => {
     <SafeAreaView style={style}>
       <ScrollView style={style} contentInsetAdjustmentBehavior="automatic">
         <StatusBar />
-        <Header />
         {children}
       </ScrollView>
     </SafeAreaView>
