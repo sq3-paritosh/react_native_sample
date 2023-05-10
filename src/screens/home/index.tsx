@@ -47,6 +47,10 @@ function Home({navigation}: Props): JSX.Element {
             title="Learn More"
             onPress={() => navigation.navigate('LearnMore')}
           />
+          <Button
+            title="Login now"
+            onPress={() => navigation.navigate('Login')}
+          />
         </Section>
       </View>
     </DefaultLayout>
