@@ -6,8 +6,7 @@
  */
 
 import React from 'react';
-import {ScrollView, Text, View, useColorScheme} from 'react-native';
-
+import {Button, Text, View, useColorScheme} from 'react-native';
 import {
   Colors,
   DebugInstructions,
@@ -16,41 +15,38 @@ import {
 
 import Section from '../../components/section';
 import styles from './home.style';
-import Header from '../../components/header';
 import DefaultLayout from '../../layouts/defaultLayout';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types';
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
-function Home(): JSX.Element {
+function Home({navigation}: Props): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
     <DefaultLayout>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-        </View>
-      </ScrollView>
+      <View
+        style={{
+          backgroundColor: isDarkMode ? Colors.black : Colors.white,
+        }}>
+        <Section title="Step One">
+          Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+          screen and then come back to see your edits.
+        </Section>
+        <Section title="See Your Changes">
+          <ReloadInstructions />
+        </Section>
+        <Section title="Debug">
+          <DebugInstructions />
+        </Section>
+        <Section title="Learn More">
+          Read the docs to discover what to do next:
+          <Button
+            title="Learn More"
+            onPress={() => navigation.navigate('LearnMore')}
+          />
+        </Section>
+      </View>
     </DefaultLayout>
   );
 }
